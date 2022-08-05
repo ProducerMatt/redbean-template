@@ -5,10 +5,15 @@
   previously existing bean.
 - `build.sh run`: pack and then execute custom comand found at top of file
 
+Stock redbeans are hidden with dots. Stock beans, as well as other executables
+that are fetched by script, are in the `.gitignore`. Since they are *Actually
+Portable*, you could also comment out this behavior and commit the executables
+directly, if you're ok with keeping them in the git store.
+
 ## Roadmap
 
 - Build.sh
-  - **INIT**: `build.sh init [-s for sqlite] []`
+  - **INIT**: `build.sh init [-s for sqlite?]`
     - [x] Fetch Redbean, save as read-only stock build.
     - [x] Also fetch zip & sqlite
     - [ ] make sqlite opt-in
