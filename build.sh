@@ -43,7 +43,7 @@ _Pack () {
     #       so calling from the root of the source file's directory is important
     #       if you want files like `.lua` to be in the right place.
     cd srv/
-    ../zip.com "../$OUT" * .*
+    ../zip.com -R "../$OUT" * .*
     cd ..
 }
 
