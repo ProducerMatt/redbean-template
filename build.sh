@@ -1,5 +1,6 @@
 #!/bin/sh
 OUT="redbean.com" # Change me!
+OUT_CMD="${OUT}" # called with "build.sh run"
 
 RB_VERSION="2.0.15"
 RB_MODE="asan-" # Memory hardening goodness for bug/exploit prevention
@@ -53,5 +54,15 @@ case "$1" in
         ;;
     pack )
         _Pack;
+        ;;
+    run )
+        _Pack;
+        exec $OUT_CMD;
+        ;;
+    * )
+        echo "a builder for redbean projects"
+        echo "- '$0 init': fetch redbean, zip and sqlite"
+        echo "- '$0 pack': pack "./srv/" into a new redbean, overwriting the old"
+        echo "- '$0 run': pack, then execute with a customizable command"
         ;;
 esac
