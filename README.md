@@ -3,6 +3,7 @@
 - `build.sh init`: download Redbean, zip, and sqlite
 - `build.sh pack`: put contents of `srv/` into a fresh redbean, overwriting
   previously existing bean.
+- `build.sh run`: pack and then execute custom comand found at top of file
 
 ## Roadmap
 
@@ -20,3 +21,5 @@
           executable, run it
     - [ ] *if sqlite.com and `default.sqlite` exist, force copy
           `default.sqlite` to `db.sqlite`*
+  - **RUN**
+    - [x] pack and then execute command specified in variable
