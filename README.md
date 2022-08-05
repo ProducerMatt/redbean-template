@@ -3,7 +3,7 @@
 - `build.sh init`: download Redbean, zip, and sqlite
 - `build.sh pack`: put contents of `srv/` into a fresh redbean, overwriting
   previously existing bean.
-- `build.sh run`: pack and then execute custom comand found at top of file
+- `build.sh run`: pack and then execute custom command found at top of file
 
 ## Roadmap
 
