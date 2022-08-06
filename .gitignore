@@ -1,8 +1,6 @@
 ### REDBEAN-TEMPLATE
-# any stock version
-.rb-*_stock.com
-sqlite.com
-zip.com
+# executables shouldn't be in a public git repo
+*.com
 
 ### Created by https://www.gitignore.io
 ### Vim ###

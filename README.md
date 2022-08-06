@@ -5,10 +5,11 @@
   previously existing bean.
 - `build.sh run`: pack and then execute custom command found at top of file
 
-Stock redbeans are hidden with dots. Stock beans, as well as other executables
-that are fetched by script, are in the `.gitignore`. Since they are *Actually
-Portable*, you could also comment out this behavior and commit the executables
-directly, if you're ok with keeping them in the git store.
+Stock redbeans are hidden with dots. Executables are excluded in the
+`.gitignore`. Since they are *Actually Portable*, you *could* disable this
+behavior and commit the executables directly, if you're ok with keeping them in
+the git store. Also remember that binaries have a certain risk profile of their
+own.
 
 ## Roadmap
 
