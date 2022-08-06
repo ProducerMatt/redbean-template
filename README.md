@@ -29,3 +29,8 @@ own.
           `default.sqlite` to `db.sqlite`*
   - **RUN**
     - [x] pack and then execute command specified in variable
+
+# Notable contributions
+
+VSCode integration by [Danny Robinson
+(stellartux)](https://github.com/stellartux)
