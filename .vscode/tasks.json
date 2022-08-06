@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "redbean init",
+      "detail": "Fetch redbean, zip and SQLite.",
+      "type": "shell",
+      "group": "build",
+      "command": "./build.sh init",
+      "windows": {
+        "command": "wsl ./build.sh init"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "redbean pack",
+      "detail": "Pack \"./srv/\" into a new redbean, overwriting the old.",
+      "type": "shell",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "command": "./build.sh pack",
+      "windows": {
+        "command": "wsl ./build.sh pack"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "redbean run",
+      "detail": "Pack, then execute with a customizable command.",
+      "type": "shell",
+      "group": "build",
+      "command": "./build.sh run",
+      "windows": {
+        "command": "wsl ./build.sh run"
+      },
+      "problemMatcher": []
+    },
+  ]
+}
