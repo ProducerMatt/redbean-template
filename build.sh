@@ -2,7 +2,7 @@
 OUT="redbean.com" # Change me!
 OUT_CMD="./${OUT}" # called with "build.sh run"
 
-RB_VERSION="2.0.15"
+RB_VERSION="2.0.16"
 RB_MODE="asan-" # Memory hardening goodness for bug/exploit prevention
 RB_URL="https://redbean.dev/redbean-${RB_MODE}${RB_VERSION}.com"
 STOCK=".rb-${RB_MODE}${RB_VERSION}_stock.com"
