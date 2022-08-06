@@ -1,15 +1,15 @@
 ### REDBEAN-TEMPLATE
-.rb-*_stock.com   # any stock version
+# any stock version
+.rb-*_stock.com
 sqlite.com
 zip.com
-
-
 
 ### Created by https://www.gitignore.io
 ### Vim ###
 # Swap
 [._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
+# comment out if you don't need vector files
+!*.svg
 [._]*.sw[a-p]
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
