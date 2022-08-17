@@ -1,5 +1,7 @@
 # Template for Redbean Projects
 
+### build.sh
+
 - `build.sh init`: download Redbean, zip, and sqlite
 - `build.sh pack`: put contents of `srv/` into a fresh redbean, overwriting
   previously existing bean.
@@ -11,7 +13,17 @@ behavior and commit the executables directly, if you're ok with keeping them in
 the git store. Also remember that binaries have a certain risk profile of their
 own.
 
-## Roadmap
+### Makefile
+
+You can also use `make` to do the above.
+
+- `make` will download all of the requirements.
+- `make add` zips the contents of `/srv` into your `redbean.com`.
+- `make start` or `make start-daemon` will start the webserver
+
+See also: `make stop-daemon`, `make log`, `make ls`
+
+### Roadmap
 
 - Build.sh
   - **INIT**: `build.sh init [-s for sqlite?]`
@@ -30,7 +42,7 @@ own.
   - **RUN**
     - [x] pack and then execute command specified in variable
 
-# Notable contributions
+### Notable contributions
 
 VSCode integration by [Danny Robinson
 (stellartux)](https://github.com/stellartux)
