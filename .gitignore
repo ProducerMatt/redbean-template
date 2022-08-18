@@ -1,6 +1,10 @@
+*.pid
+*.log
+
 ### REDBEAN-TEMPLATE
 # executables shouldn't be in a public git repo
 *.com
+*.com.template
 
 ### Created by https://www.gitignore.io
 ### Vim ###
