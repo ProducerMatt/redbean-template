@@ -1,3 +1,9 @@
+# /*─────────────────────────────────────────────────────────────────╗
+# │ To the extent possible under law, Jared Miller has waived        │
+# │ all copyright and related or neighboring rights to this file,    │
+# │ as it is written in the following disclaimers:                   │
+# │   • http://unlicense.org/                                        │
+# ╚─────────────────────────────────────────────────────────────────*/
 .PHONY: all clean test
 
 # Change redbean to whatever you want
@@ -44,19 +50,19 @@ start: ${REDBEAN}
 start-daemon: ${REDBEAN}
 	@(test ! -f ${PROJECT}.pid && \
 		./${REDBEAN} -vv -d -L ${PROJECT}.log -P ${PROJECT}.pid && \
-		printf "🦞 started $$(cat ${PROJECT}.pid)\n") \
-		|| echo "🦞 already running $$(cat ${PROJECT}.pid)"
+		printf "started $$(cat ${PROJECT}.pid)\n") \
+		|| echo "already running $$(cat ${PROJECT}.pid)"
 
 restart-daemon:
 	@(test ! -f ${PROJECT}.pid && \
 		./${REDBEAN} -vv -d -L ${PROJECT}.log -P ${PROJECT}.pid && \
-		printf "🦞 started $$(cat ${PROJECT}.pid)") \
+		printf "started $$(cat ${PROJECT}.pid)") \
 		|| kill -HUP $$(cat ${PROJECT}.pid) && \
-		printf "🦞 restarted $$(cat ${PROJECT}.pid)\n"
+		printf "restarted $$(cat ${PROJECT}.pid)\n"
 
 stop-daemon: ${PROJECT}.pid
 	@kill -TERM $$(cat ${PROJECT}.pid) && \
-		printf "🦞 stopped $$(cat ${PROJECT}.pid)\n" && \
+		printf "stopped $$(cat ${PROJECT}.pid)\n" && \
 		rm ${PROJECT}.pid \
 
 clean:
