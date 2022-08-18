@@ -1,4 +1,10 @@
 #!/bin/sh
+# /*─────────────────────────────────────────────────────────────────╗
+# │ To the extent possible under law, Matthew Pherigo has waived     │
+# │ all copyright and related or neighboring rights to this file,    │
+# │ as it is written in the following disclaimers:                   │
+# │   • http://unlicense.org/                                        │
+# ╚─────────────────────────────────────────────────────────────────*/
 OUT="redbean.com" # Change me!
 OUT_CMD="./${OUT}" # called with "build.sh run"
 
