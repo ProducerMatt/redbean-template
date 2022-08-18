@@ -1,5 +1,8 @@
 # Template for Redbean Projects
 
+This repo contains two options for managing your project: a shell script, and a
+Makefile.
+
 ### build.sh
 
 - `build.sh init`: download Redbean, zip, and sqlite
@@ -44,5 +47,6 @@ See also: `make stop-daemon`, `make log`, `make ls`
 
 ### Notable contributions
 
-VSCode integration by [Danny Robinson
-(stellartux)](https://github.com/stellartux)
+- VSCode integration by [Danny Robinson
+  (stellartux)](https://github.com/stellartux)
+- Makefile by [Jared Miller (shmup)](https://github.com/shmup)
