@@ -3,6 +3,9 @@
 This repo contains two options for managing your project: a shell script, and a
 Makefile.
 
+To make your redbean launch a browser on start, uncomment
+`LaunchBrowserOnStart()` in `srv/.init.lua`.
+
 ### build.sh
 
 - `build.sh init`: download Redbean, zip, and sqlite
