@@ -17,6 +17,7 @@ RB_URL="https://redbean.dev/redbean-${RB_MODE}${RB_VERSION}.com"
 STOCK=".rb-${RB_MODE}${RB_VERSION}_stock.com"
 ZIP_URL="https://redbean.dev/zip.com"
 SQLITE_URL="https://redbean.dev/sqlite3.com"
+DEFINITIONS_URL="https://raw.githubusercontent.com/jart/cosmopolitan/master/tool/net/definitions.lua"
 
 _Fetch() {
     # $1 = target filesystem location
@@ -40,6 +41,8 @@ _Init () {
     chmod +x "zip.com"
     _Fetch "sqlite.com" "$SQLITE_URL";
     chmod +x "sqlite.com"
+    mkdir -p definitions
+    _Fetch "definitions/redbean.lua" "$DEFINITIONS_URL"
     umask $u;
 }
 _Pack () {
@@ -56,6 +59,10 @@ _Pack () {
     ../zip.com -r "../$OUT" `ls -A`
     cd ..
 }
+_Clean () {
+    rm -f zip.com sqlite.com $STOCK $OUT definitions/redbean.lua .tmp
+    [ "$(ls -A definitions)" ] || rm -rf definitions
+}
 
 case "$1" in
     init )
@@ -68,10 +75,14 @@ case "$1" in
         _Pack;
         exec $OUT_CMD;
         ;;
+    clean )
+        _Clean;
+        ;;
     * )
         echo "a builder for redbean projects"
         echo "- '$0 init': fetch redbean, zip and sqlite"
         echo "- '$0 pack': pack "./srv/" into a new redbean, overwriting the old"
         echo "- '$0 run': pack, then execute with a customizable command"
+        echo "- '$0 clean': delete all downloaded and generated files"
         ;;
 esac
