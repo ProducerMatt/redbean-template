@@ -37,5 +37,16 @@
       },
       "problemMatcher": []
     },
+    {
+      "label": "redbean clean",
+      "detail": "Delete all downloaded and generated files",
+      "type": "shell",
+      "group": "none",
+      "command": "./build.sh clean",
+      "windows": {
+        "command": "wsl ./build.sh clean"
+      },
+      "problemMatcher": []
+    }
   ]
 }
