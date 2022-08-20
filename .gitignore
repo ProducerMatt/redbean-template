@@ -24,6 +24,8 @@ Sessionx.vim
 # Temporary
 .netrwhist
 *~
+tmp
+.tmp
 # Auto-generated tag files
 tags
 # Persistent undo
@@ -78,5 +80,3 @@ flycheck_*.el
 
 # network security
 /network-security.data
-
-

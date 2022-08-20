@@ -16,10 +16,12 @@ ZIP=zip.com
 ZIP_DL=https://redbean.dev/zip.com
 UNZIP=unzip.com
 UNZIP_DL=https://redbean.dev/unzip.com
+DEFINITIONS=definitions/redbean.lua
+DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/master/tool/net/definitions.lua
 
 NPD=--no-print-directory
 
-all: add
+all: add ${DEFINITIONS}
 
 ${REDBEAN}.template:
 	curl -Rs ${REDBEAN_DL} -o $@ && \
@@ -31,6 +33,10 @@ ${REDBEAN}: ${REDBEAN}.template
 ${ZIP}:
 	curl -Rso ${ZIP} ${ZIP_DL}
 	chmod +x ${ZIP}
+
+${DEFINITIONS}:
+	mkdir -p definitions
+	curl -Rso ${DEFINITIONS} ${DEFINITIONS_DL}
 
 add: ${ZIP} ${REDBEAN}
 	cp -f ${REDBEAN}.template ${REDBEAN}
@@ -66,4 +72,5 @@ stop-daemon: ${PROJECT}.pid
 		rm ${PROJECT}.pid \
 
 clean:
-	rm -f ${PROJECT}.log ${PROJECT}.pid ${REDBEAN} ${REDBEAN}.template ${ZIP} ${UNZIP}
+	rm -f ${PROJECT}.log ${PROJECT}.pid ${REDBEAN} ${REDBEAN}.template ${ZIP} ${UNZIP} ${DEFINITIONS}
+	[ "$(ls -A definitions)" ] || rm -rf definitions 
