@@ -17,7 +17,7 @@ ZIP_DL=https://redbean.dev/zip.com
 UNZIP=unzip.com
 UNZIP_DL=https://redbean.dev/unzip.com
 DEFINITIONS=definitions/redbean.lua
-DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/master/tool/net/definitions.lua
+DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/d76dfadc7a0a9a5b7500d697e15a64c70d53eb12/tool/net/definitions.lua
 
 NPD=--no-print-directory
 

@@ -17,7 +17,7 @@ RB_URL="https://redbean.dev/redbean-${RB_MODE}${RB_VERSION}.com"
 STOCK=".rb-${RB_MODE}${RB_VERSION}_stock.com"
 ZIP_URL="https://redbean.dev/zip.com"
 SQLITE_URL="https://redbean.dev/sqlite3.com"
-DEFINITIONS_URL="https://raw.githubusercontent.com/jart/cosmopolitan/master/tool/net/definitions.lua"
+DEFINITIONS_URL="https://raw.githubusercontent.com/jart/cosmopolitan/d76dfadc7a0a9a5b7500d697e15a64c70d53eb12/tool/net/definitions.lua"
 
 _Fetch() {
     # $1 = target filesystem location
