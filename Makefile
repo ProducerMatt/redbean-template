@@ -24,14 +24,14 @@ NPD=--no-print-directory
 all: add ${DEFINITIONS}
 
 ${REDBEAN}.template:
-	curl -Rs ${REDBEAN_DL} -o $@ && \
-		chmod +x ${@}
+	curl -s ${REDBEAN_DL} -o $@ -z $@ && \
+		chmod +x $@
 
 ${REDBEAN}: ${REDBEAN}.template
 	cp ${REDBEAN}.template ${REDBEAN}
 
 ${ZIP}:
-	curl -Rso ${ZIP} ${ZIP_DL}
+	curl -s ${ZIP_DL} -o $@ -z $@
 	chmod +x ${ZIP}
 
 ${DEFINITIONS}:
@@ -42,7 +42,7 @@ add: ${ZIP} ${REDBEAN}
 	cp -f ${REDBEAN}.template ${REDBEAN}
 	cd srv/ && ../${ZIP} -r ../${REDBEAN} `ls -A`
 
-unzip.com: ; curl -Rs ${ZIP_DL} -o $@
+unzip.com: ; curl -s ${ZIP_DL} -o $@ -z $@
 ls: unzip.com
 	@unzip -vl ./${REDBEAN} | grep -v \
 		'usr/\|.symtab'
