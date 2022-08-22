@@ -1,5 +1,6 @@
 *.pid
 *.log
+definitions
 
 ### REDBEAN-TEMPLATE
 # executables shouldn't be in a public git repo
