@@ -24,11 +24,11 @@ _Fetch() {
     # $2 = URL
     echo "Getting $1 from $2"
     if command -v wget >/dev/null 2>&1; then
-        wget -qcO ".tmp" $2 || exit
+        wget -NqcO ".tmp" $2 || exit
     elif command -v curl >/dev/null 2>&1; then
-        curl -Rso ".tmp" $2 || exit
+        curl -so ".tmp" -z ".tmp" $2 || exit
     elif command -v fetch >/dev/null 2>&1; then
-        fetch -o ".tmp" $2 || exit
+        fetch -mo ".tmp" $2 || exit
     else echo "No downloaders!"; exit 1;
     fi
     mv -f ".tmp" $1
