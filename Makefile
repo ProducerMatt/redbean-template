@@ -36,7 +36,7 @@ ${ZIP}:
 
 ${DEFINITIONS}:
 	mkdir -p definitions
-	curl -Rso ${DEFINITIONS} ${DEFINITIONS_DL}
+	curl -s ${DEFINITIONS_DL} -o $@ -z $@
 
 add: ${ZIP} ${REDBEAN}
 	cp -f ${REDBEAN}.template ${REDBEAN}
@@ -73,4 +73,4 @@ stop-daemon: ${PROJECT}.pid
 
 clean:
 	rm -f ${PROJECT}.log ${PROJECT}.pid ${REDBEAN} ${REDBEAN}.template ${ZIP} ${UNZIP} ${DEFINITIONS}
-	[ "$(ls -A definitions)" ] || rm -rf definitions 
+	[ "$(ls -A definitions)" ] || rm -rf definitions
