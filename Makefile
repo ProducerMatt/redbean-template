@@ -9,7 +9,7 @@
 # Change redbean to whatever you want
 PROJECT=redbean
 REDBEAN=${PROJECT}.com
-REDBEAN_VERSION=2.0.17
+REDBEAN_VERSION=2.0.18
 REDBEAN_DL=https://redbean.dev/redbean-${REDBEAN_VERSION}.com
 
 ZIP=zip.com
