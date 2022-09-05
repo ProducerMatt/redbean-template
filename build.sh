@@ -41,7 +41,7 @@ _Init () {
     chmod +x "zip.com"
     _Fetch "sqlite.com" "$SQLITE_URL";
     chmod +x "sqlite.com"
-    mkdir -p definitions
+    mkdir -m 755 -p definitions
     _Fetch "definitions/redbean.lua" "$DEFINITIONS_URL"
     umask $u;
 }
