@@ -10,8 +10,12 @@
 PROJECT=redbean
 REDBEAN=${PROJECT}.com
 REDBEAN_VERSION=2.0.18
-REDBEAN_DL=https://redbean.dev/redbean-${REDBEAN_VERSION}.com
+#leave empty for default, or use one of tiny-, asan-, original-, static-, unsecure-, original-tinylinux-
+REDBEAN_BUILD=asan-
+REDBEAN_DL=https://redbean.dev/redbean-${REDBEAN_BUILD}${REDBEAN_VERSION}.com
 
+SQLITE3=sqlite3.com
+SQLITE3_DL=https://redbean.dev/sqlite3.com
 ZIP=zip.com
 ZIP_DL=https://redbean.dev/zip.com
 UNZIP=unzip.com
@@ -21,7 +25,7 @@ DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/d76dfadc7a0a9
 
 NPD=--no-print-directory
 
-all: add ${DEFINITIONS}
+all: ${SQLITE3} add ${DEFINITIONS}
 
 ${REDBEAN}.template:
 	curl -s ${REDBEAN_DL} -o $@ -z $@ && \
@@ -30,9 +34,17 @@ ${REDBEAN}.template:
 ${REDBEAN}: ${REDBEAN}.template
 	cp ${REDBEAN}.template ${REDBEAN}
 
+${SQLITE3}:
+	curl -s ${SQLITE3_DL} -o $@ -z $@
+	chmod +x ${SQLITE3}
+
 ${ZIP}:
 	curl -s ${ZIP_DL} -o $@ -z $@
 	chmod +x ${ZIP}
+
+${UNZIP}:
+	curl -s ${UNZIP_DL} -o $@ -z $@
+	chmod +x ${UNZIP}
 
 ${DEFINITIONS}:
 	mkdir -p definitions
@@ -42,9 +54,8 @@ add: ${ZIP} ${REDBEAN}
 	cp -f ${REDBEAN}.template ${REDBEAN}
 	cd srv/ && ../${ZIP} -r ../${REDBEAN} `ls -A`
 
-unzip.com: ; curl -s ${ZIP_DL} -o $@ -z $@
-ls: unzip.com
-	@unzip -vl ./${REDBEAN} | grep -v \
+ls: ${UNZIP}
+	@./${UNZIP} -vl ./${REDBEAN} | grep -v \
 		'usr/\|.symtab'
 
 log: ${PROJECT}.log
@@ -72,5 +83,5 @@ stop-daemon: ${PROJECT}.pid
 		rm ${PROJECT}.pid \
 
 clean:
-	rm -f ${PROJECT}.log ${PROJECT}.pid ${REDBEAN} ${REDBEAN}.template ${ZIP} ${UNZIP} ${DEFINITIONS}
+	rm -f ${PROJECT}.log ${PROJECT}.pid ${REDBEAN} ${REDBEAN}.template ${SQLITE3} ${ZIP} ${UNZIP} ${DEFINITIONS}
 	[ "$(ls -A definitions)" ] || rm -rf definitions
