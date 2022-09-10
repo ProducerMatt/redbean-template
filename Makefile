@@ -25,7 +25,9 @@ DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/d76dfadc7a0a9
 
 NPD=--no-print-directory
 
-all: ${SQLITE3} add ${DEFINITIONS}
+all: download add
+
+download: ${REDBEAN} ${SQLITE3} ${ZIP} ${UNZIP} ${DEFINITIONS}
 
 ${REDBEAN}.template:
 	curl -s ${REDBEAN_DL} -o $@ -z $@ && \
