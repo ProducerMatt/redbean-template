@@ -6,6 +6,9 @@ Makefile.
 To make your redbean launch a browser on start, uncomment
 `LaunchBrowserOnStart()` in `srv/.init.lua`.
 
+M1 Mac users should use the default `MODE` instead of `asan-`, this can be set
+in the top of your Makefile/build.sh
+
 ### build.sh
 
 - `build.sh init`: download Redbean, zip, and sqlite

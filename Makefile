@@ -10,9 +10,11 @@
 PROJECT=redbean
 REDBEAN=${PROJECT}.com
 REDBEAN_VERSION=2.0.18
-#leave empty for default, or use one of tiny-, asan-, original-, static-, unsecure-, original-tinylinux-
-REDBEAN_BUILD=asan-
-REDBEAN_DL=https://redbean.dev/redbean-${REDBEAN_BUILD}${REDBEAN_VERSION}.com
+# leave empty for default, or use one of tiny-, asan-, original-, static-, unsecure-, original-tinylinux-
+# asan mode currently not working on M1 Macs
+#REDBEAN_MODE=
+REDBEAN_MODE=asan-
+REDBEAN_DL=https://redbean.dev/redbean-${REDBEAN_MODE}${REDBEAN_VERSION}.com
 
 SQLITE3=sqlite3.com
 SQLITE3_DL=https://redbean.dev/sqlite3.com

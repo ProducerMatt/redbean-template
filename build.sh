@@ -13,6 +13,10 @@ OUT_CMD="./${OUT}" # called with "build.sh run"
 
 RB_VERSION="2.0.18"
 RB_MODE="asan-" # Memory hardening goodness for bug/exploit prevention
+# leave RB_MODE empty for default, or use one of tiny-, asan-, original-,
+# static-, unsecure-, original-tinylinux-
+# asan mode currently not working on M1 Macs
+#RB_MODE=
 RB_URL="https://redbean.dev/redbean-${RB_MODE}${RB_VERSION}.com"
 STOCK=".rb-${RB_MODE}${RB_VERSION}_stock.com"
 ZIP_URL="https://redbean.dev/zip.com"
