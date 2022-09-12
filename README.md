@@ -23,11 +23,12 @@ own.
 
 You can also use `make` to do the above.
 
-- `make` will download all of the requirements.
+- `make` will do `make download` + `make add`
+- `make download` will download all of the requirements.
 - `make add` zips the contents of `/srv` into your `redbean.com`.
-- `make start` or `make start-daemon` will start the webserver
+- `make start` or `make start-daemon` will start the webserver (in foreground and background, respectively)
 
-See also: `make stop-daemon`, `make log`, `make ls`
+See also: `make stop-daemon`, `make restart-daemon`, `make log`, `make ls`
 
 ### Roadmap
 
