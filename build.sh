@@ -12,11 +12,18 @@ OUT_CMD="./${OUT}" # called with "build.sh run"
 # NOTE: https://redbean.dev/#security
 
 RB_VERSION="2.0.18"
-RB_MODE="asan-" # Memory hardening goodness for bug/exploit prevention
+
+# Use default redbean if on M1 Mac. Else use ASAN
+# NOTE(ProducerMatt): This code block exists because of ASAN crashes on M1.
+# Once they're fixed we can go back to default ASAN on all systems.
+if which arch 2>/dev/null && [ "$(arch)" != "x86_64" ]; then
+    RB_MODE= # default
+else
+    RB_MODE="asan-" # Memory hardening goodness for bug/exploit prevention
+fi
 # leave RB_MODE empty for default, or use one of tiny-, asan-, original-,
 # static-, unsecure-, original-tinylinux-
-# asan mode currently not working on M1 Macs
-#RB_MODE=
+
 RB_URL="https://redbean.dev/redbean-${RB_MODE}${RB_VERSION}.com"
 STOCK=".rb-${RB_MODE}${RB_VERSION}_stock.com"
 ZIP_URL="https://redbean.dev/zip.com"
