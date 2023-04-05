@@ -9,7 +9,7 @@
 # Change redbean to whatever you want
 PROJECT=redbean
 REDBEAN=${PROJECT}.com
-REDBEAN_VERSION=2.0.18
+REDBEAN_VERSION=2.2
 # leave empty for default, or use one of tiny-, asan-, original-, static-, unsecure-, original-tinylinux-
 # asan mode currently not working on M1 Macs
 #REDBEAN_MODE=
@@ -23,7 +23,7 @@ ZIP_DL=https://redbean.dev/zip.com
 UNZIP=unzip.com
 UNZIP_DL=https://redbean.dev/unzip.com
 DEFINITIONS=definitions/redbean.lua
-DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/d76dfadc7a0a9a5b7500d697e15a64c70d53eb12/tool/net/definitions.lua
+DEFINITIONS_DL=https://raw.githubusercontent.com/jart/cosmopolitan/2.2/tool/net/definitions.lua
 
 NPD=--no-print-directory
 
