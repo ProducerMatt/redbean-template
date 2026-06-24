@@ -11,7 +11,16 @@ OUT_CMD="./${OUT}" # called with "build.sh run"
 #OUT_CMD="./${OUT} -SSS" # extra-sandboxed version of redbean
 # NOTE: https://redbean.dev/#security
 
-RB_VERSION="2.2"
+RB_VERSION="latest"
+# # NOTE: uncomment for a fixed version
+# RB_VERSION="2.2"
+
+if [ $RB_VERSION == "latest" ]; then
+    GITHUB_TAG="master"
+else
+    # assuming that the redbean version is a valid cosmo tag
+    GITHUB_TAG=$RB_VERSION
+fi
 
 # Use default redbean if on M1 Mac. Else use ASAN
 # NOTE(ProducerMatt): This code block exists because of ASAN crashes on M1.
@@ -28,14 +37,15 @@ RB_URL="https://redbean.dev/redbean-${RB_MODE}${RB_VERSION}.com"
 STOCK=".rb-${RB_MODE}${RB_VERSION}_stock.com"
 ZIP_URL="https://redbean.dev/zip.com"
 SQLITE_URL="https://redbean.dev/sqlite3.com"
-DEFINITIONS_URL="https://raw.githubusercontent.com/jart/cosmopolitan/2.2/tool/net/definitions.lua"
+DEFINITIONS_URL="https://raw.githubusercontent.com/jart/cosmopolitan/${GITHUB_TAG}/tool/net/definitions.lua"
 
 _Fetch() {
     # $1 = target filesystem location
     # $2 = URL
     echo "Getting $1 from $2"
     if command -v wget >/dev/null 2>&1; then
-        wget -NqcO ".tmp" $2 || exit
+	# NOTE: add the -N flag to prevent redownloading an identical binary.
+        wget -qcO ".tmp" $2 || exit
     elif command -v curl >/dev/null 2>&1; then
         curl -so ".tmp" -z ".tmp" $2 || exit
     elif command -v fetch >/dev/null 2>&1; then
